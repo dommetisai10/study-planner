@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart AI Study Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+
+    <header class="masthead">
+      <div class="masthead-mark">SP</div>
+      <div>
+        <h1>Study Planner</h1>
+        <p class="tagline">Tell it what's left to learn — it schedules the rest.</p>
+      </div>
+    </header>
+
+    <section class="panel">
+      <form id="plannerForm">
+        <div class="field">
+          <label for="subjects">Subjects</label>
+          <input type="text" id="subjects" placeholder="Maths, Physics, DBMS" required />
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="examDate">Exam date</label>
+            <input type="date" id="examDate" required />
+          </div>
+          <div class="field">
+            <label for="hours">Hours / day</label>
+            <input type="number" id="hours" min="1" max="16" value="4" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="syllabus">Syllabus / topics <span class="optional-tag">(optional, but gives a much better plan)</span></label>
+          <textarea id="syllabus" rows="4" placeholder="Paste your syllabus or topic list here, e.g.&#10;OS: Process Scheduling, Deadlocks, Memory Management&#10;DLCO: Boolean Algebra, K-Maps, Sequential Circuits"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">Build my plan</button>
+      </form>
+    </section>
+
+    <section id="loading" class="loading hidden">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="loading-text">Working out your schedule…</span>
+    </section>
+
+    <section id="result" class="result hidden">
+
+      <div class="stat-row" id="statRow"></div>
+
+      <p id="summaryText" class="summary"></p>
+
+      <div class="table-wrap">
+        <table id="planTable">
+          <thead>
+            <tr>
+              <th class="col-day">Day</th>
+              <th class="col-focus">Focus</th>
+              <th class="col-topics">Topics</th>
+              <th class="col-hours">Hours</th>
+            </tr>
+          </thead>
+          <tbody id="planBody"></tbody>
+        </table>
+      </div>
+
+      <button id="downloadBtn" class="download-btn">Download plan (.txt)</button>
+    </section>
+
+    <section id="errorBox" class="error hidden"></section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
