@@ -1,7 +1,7 @@
 // Connects the form to the FastAPI backend, then renders the AI's
 // structured JSON plan as a table (instead of raw text).
 
-const API_URL = "http://127.0.0.1:8000"; // change this to your Render URL after deploying
+const API_URL = "https://study-planner-vjgs.onrender.com"; // change this to your Render URL after deploying
 
 const form = document.getElementById("plannerForm");
 const submitBtn = document.getElementById("submitBtn");
